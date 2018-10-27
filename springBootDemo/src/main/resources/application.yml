@@ -1,0 +1,12 @@
+server:
+  port: 8888
+  context-path: /
+
+spring:
+  application:
+    name: springBootDemo
+
+info:
+  springBootDemo:
+    version: "@project.version@"
+---

@@ -1,0 +1,24 @@
+server:
+  port: 8082
+  context-path: /
+
+serverProvide:
+  url:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8765/eureka/ #http://127.0.0.1:${server.port}/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: serverConsumer
+
+
+feign:
+  compression:
+    request:
+      min-request-size: 2048
+  hystrix:
+    enabled: true   #启用hystrix监控
