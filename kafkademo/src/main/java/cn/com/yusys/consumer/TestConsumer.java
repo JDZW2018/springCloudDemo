@@ -7,9 +7,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * kafka消费者测试
+ * 向同一个
  */
 @Component
 public class TestConsumer {
+
+    @KafkaListener(topics = "test")
+    public void listen4(ConsumerRecord<?,?> record){
+        System.out.println("listen4："+record.toString());
+    }
+
     @KafkaListener(topics = "test")
     public void listen1 (ConsumerRecord<?, ?> record) throws Exception {
         //System.out.printf("topic = %s, offset = %d, value = %s \n", record.topic(), record.offset(), record.value());
@@ -24,4 +31,5 @@ public class TestConsumer {
     public void listen3(ConsumerRecord<?,?> record){
         System.out.println("listen3："+record.toString());
     }
+
 }
